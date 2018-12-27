@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="planning.css" />
+        <title>Planning</title>
+    </head>
+    <body>
+        <div id="conteneur">
+            
+            <!-- Le Navigateur -->
+            
+            <nav>
+                <div id="photo1" style="text-align: center">
+                    <img src="image/Photo.jpg" alt="Logo" class="photo" title="Ma photo"/>
+                </div>
+                <br>
+                <div id="sommaire1" class="blocsDuNavigateur">
+                    <h3>Calendrier</h3>
+                    <br>
+                    <table>
+                        <tr>
+                            <td href="#lundi">Lundi</td>
+                            <td href="#Jeudi">Jeudi</td>
+                        </tr>
+                        <tr>
+                            <td href="#Mardi">Mardi</td>
+                            <td href="#Mercredi">Vendredi</td>
+                        </tr>
+                        <tr>
+                            <td href="#Mercredi">Mercredi</td>
+                            <td id="interdit" href="#Samedi">Samedi</td>
+                       </tr>
+                    </table>
+                </div>
+                <br>
+                <div id="informations1" class="blocsDuNavigateur">
+                    <h3>Rajouter un membre</h3>
+                    <br>
+                    <form method="post" action="traitement.php">
+                        <fieldset>
+                            <p>
+                                <label for="prenom">Prénom</label>
+                                <input type="text" name="prenom" id="prenom" placeholder="prenom" size="10" maxlength="10" />
+                            </p>
+                            <p>
+                                <label for="nom">Nom</label>
+                                <input type="text" name="nom" id="nom" placeholder="prenom" size="10" maxlength="10" />
+                            </p>
+                        </fieldset>
+                        <fieldset>
+                            <legend><h4>Absences</h4></legend>
+                            <p>
+                                <input type="radio" name="lundi" value="lundi" id="lundi" /><label for="lundi">Lundi</label>
+                                <input type="radio" name="jeudi" value="jeudi" id="jeudi" /><label for="jeudi">Jeudi</label>
+                            </p>
+                            <p>
+                                <input type="radio" name="mardi" value="mardi" id="mardi" /><label for="mardi">Mardi</label>
+                                <input type="radio" name="vendredi" value="vendredi" id="vendredi" /><label for="vendredi">Vendredi</label>
+                            </p>
+                            <p>
+                                <input type="radio" name="mercredi" value="mercredi" id="mercredi" /><label for="mercredi">Mercredi</label>
+                                <input type="radio" name="samedi" value="samedi" id="samedi" /><label for="samedi">Samedi</label>
+                            </p>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <legend><h4>Rythme</h4></legend>
+                            <p>
+                                <select name="rythme" id="rythme">
+                                    <option value="matin">Matin</option>
+                                    <option value="après-midi">Après-midi</option>
+                                </select>
+                            </p>
+                        </fieldset>
+                        <br>
+                        <div id="bouton">
+                            <input type="reset" value="Annuler" />
+                            <input type="submit" value="Envoyer" />
+                        </div>
+                    </form>
+                </div>
+                <br>  
+            </nav>
+            
+            <!-- La section -->
+            
+            <section>
+
+                <!-- La tête de section -->
+
+                <header id="tete">
+                    <div id="petitNavigateur">
+                        <div id="photo2" style="text-align: center">
+                            <img src="image/Photo.jpg" alt="Photo" class="photo" title="Ma photo"/>
+                        </div>
+                        <br>
+                        <div id="informations2" class="blocsDuNavigateur">
+                            <h4>Informations</h4>
+                            Equipe
+                            <br>
+                        </div>
+                        <br>
+                    </div>
+                    <h1 id="titre" >PLANNING</h1>
+                </header>
+
+                <!-- Le corps de section -->
+
+                <div id= "corps">
+                    <div id="modeEmploi" class="blocsDuCorps">
+                        <h3>Mode d'emploi</h3>
+                                <ul>
+                                    <li>1 - Afficher les membres de l'équipe</li>
+                                    <li>2 - Rajouter un membre dans l'équipe</li>
+                                    <li>3 - Générer le planning</li>
+                                    <li>0 - Quitter l'application</li>
+                                </ul>
+                    </div>
+                    <br>
+                    <div id="planning" class="blocsDuCorps">
+                        <h3>Génération du planning</h3>
+                        <h4 id="lundi">Lundi</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Heures</td>
+                                    <td colspan="1">Poste 1</td>
+                                    <td colspan="1">Poste 2</td>
+                                    <td colspan="1">Poste 3</td>
+                                    <td colspan="1">Poste 4</td>
+                                    <td colspan="1">Poste 5</td>
+                                    <td colspan="1">Poste 6</td>
+                                    <td colspan="1">Poste 7</td>
+                                    <td colspan="1">Poste 8</td>
+                                    <td colspan="1">Poste 9</td>
+                                    <td colspan="1">Poste 10</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="Lundi8H00">
+                                    <td>8H00</td>
+                                </tr>
+                                <tr id="Lundi8H15">
+                                    <td>8H15</td>
+                                </tr>
+                                <tr id="Lundi8H30">
+                                    <td>8H30</td>
+                                </tr>
+                                <tr id="Lundi8H45">
+                                    <td>8H45</td>
+                                </tr>
+                                <tr id="Lundi9H00">
+                                    <td>9H00</td>
+                                </tr>
+                                <tr id="Lundi9H15">
+                                    <td>9H15</td>
+                                </tr>
+                                <tr id="Lundi9H30">
+                                    <td>9H30</td>
+                                </tr>
+                                <tr id="Lundi9H45">
+                                    <td>9H45</td>
+                                </tr>
+                                <tr id="Lundi10H00">
+                                    <td>10H00</td>
+                                </tr>
+                                <tr id="Lundi10H15">
+                                    <td>10H15</td>
+                                </tr>
+                                <tr id="Lundi10H30">
+                                    <td>10H30</td>
+                                </tr>
+                                <tr id="Lundi10H45">
+                                    <td>10H45</td>
+                                </tr>
+                                <tr id="Lundi11H00">
+                                    <td>11H00</td>
+                                </tr>
+                                <tr id="Lundi11H15">
+                                    <td>11H15</td>
+                                </tr>
+                                <tr id="Lundi11H30">
+                                    <td>11H30</td>
+                                </tr>
+                                <tr id="Lundi11H45">
+                                    <td>11H45</td>
+                                </tr>
+                                <tr id="Lundi12H00">
+                                    <td>12H00</td>
+                                </tr>
+                                <tr id="Lundi12H15">
+                                    <td>12H15</td>
+                                </tr>
+                                <tr id="Lundi12H30">
+                                    <td>12H30</td>
+                                </tr>
+                                <tr id="Lundi12H45">
+                                    <td>12H45</td>
+                                </tr>
+                                <tr id="Lundi13H00">
+                                    <td>13H00</td>
+                                </tr>
+                                <tr id="Lundi13H15">
+                                    <td>13H15</td>
+                                </tr>
+                                <tr id="Lundi13H30">
+                                    <td>13H30</td>
+                                </tr>
+                                <tr id="Lundi13H45">
+                                    <td>13H45</td>
+                                </tr>
+                                <tr id="Lundi14H00">
+                                    <td>14H00</td>
+                                </tr>
+                                <tr id="Lundi14H15">
+                                    <td>14H15</td>
+                                </tr>
+                                <tr id="Lundi14H30">
+                                    <td>14H30</td>
+                                </tr>
+                                <tr id="Lundi14H45">
+                                    <td>14H45</td>
+                                </tr>
+                                <tr id="Lundi15H00">
+                                    <td>15H00</td>
+                                </tr>
+                                <tr id="Lundi15H15">
+                                    <td>15H15</td>
+                                </tr>
+                                <tr id="Lundi15H30">
+                                    <td>15H30</td>
+                                </tr>
+                                <tr id="Lundi15H45">
+                                    <td>15H45</td>
+                                </tr>
+                                <tr id="Lundi16H00">
+                                    <td>16H00</td>
+                                </tr>
+                                <tr id="Lundi16H15">
+                                    <td>16H15</td>
+                                </tr>
+                                <tr id="Lundi16H30">
+                                    <td>16H30</td>
+                                </tr>
+                                <tr id="Lundi16H45">
+                                    <td>16H45</td>
+                                </tr>
+                                <tr id="Lundi17H00">
+                                    <td>17H00</td>
+                                </tr>
+                                <tr id="Lundi17H15">
+                                    <td>17H15</td>
+                                </tr>
+                                <tr id="Lundi17H30">
+                                    <td>17H30</td>
+                                </tr>
+                                <tr id="Lundi17H45">
+                                    <td>17H45</td>
+                                </tr>
+                                <tr id="Lundi18H00">
+                                    <td>18H00</td>
+                                </tr>
+                                <tr id="Lundi18H15">
+                                    <td>18H15</td>
+                                </tr>
+                                <tr id="Lundi18H30">
+                                    <td>18H30</td>
+                                </tr>
+                                <tr id="Lundi18H45">
+                                    <td>18H45</td>
+                                </tr>
+                                <tr id="Lundi19H00">
+                                    <td>19H00</td>
+                                </tr>
+                                <tr id="Lundi19H15">
+                                    <td>19H15</td>
+                                </tr>
+                                <tr id="Lundi19H30">
+                                    <td>19H30</td>
+                                </tr>
+                                <tr id="Lundi19H45">
+                                    <td>19H45</td>
+                                </tr>
+                                <tr id="Lundi20H00">
+                                    <td>20H00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br>
+            </section>
+        </div>
+        <script src="planning.js"></script>
+    </body>
+</html>

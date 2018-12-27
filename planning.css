@@ -1,0 +1,279 @@
+#conteneur {
+    display: flex;
+    justify-content: flex-start;
+    font-family: helvetica;
+}
+
+
+/* La police */
+
+@font-face {
+    font-family: 'kanitmedium';
+    src: url('police/kanit_medium_macroman/kanit-medium-webfont.eot');
+    src: url('police/kanit_medium_macroman/kanit-medium-webfont.eot?#iefix') format('embedded-opentype'),
+    url('police/kanit_medium_macroman/kanit-medium-webfont.woff2') format('woff2'),
+    url('police/kanit_medium_macroman/kanit-medium-webfont.woff') format('woff'),
+    url('police/kanit_medium_macroman/kanit-medium-webfont.ttf') format('truetype'),
+    url('police/kanit_medium_macroman/kanit-medium-webfont.svg#kanitmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Les images */
+
+.photo {
+    width: 175px;
+    background-color: darkgrey;
+    border: 3px black;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: 6px 6px 6px black;
+}
+
+nav .imageflottante {
+    float: left;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+}
+
+section .imageflottante {
+    float: left;
+    margin-right: 20px;
+    width: 70px;
+    height: 70px;
+}
+
+
+/* Les titres */
+
+h1
+/* Prénom Nom */
+
+    {
+    text-align: center;
+    text-shadow: 1px 1px 1px grey;
+    font-weight: bold;
+    font-size: 3em;
+    font-family: 'kanitmedium', helvetica;
+}
+
+h2
+/* Titre de la page */
+
+    {
+    text-align: center;
+    text-shadow: 1px 1px 1px grey;
+    font-weight: bold;
+    font-size: 2em;
+    font-family: 'kanitmedium', helvetica;
+}
+
+h3
+/* Titres des blocs du corps */
+
+    {
+    font-size: 1.6em;
+}
+
+h4
+/* Titres des blocs du navigateur */
+
+    {
+    text-align: center;
+    text-shadow: 1px 1px 1px grey;
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+strong
+/* Titres des blocs des expériences */
+
+    {
+    font-size: 1.05em;
+}
+
+h5
+/* Lieux de travail */
+
+    {
+    font-size: 0.85em;
+}
+
+
+/* Les dates */
+
+em {
+    font-style: italic;
+    font-weight: bold;
+    color: darkblue;
+}
+
+
+/* Les tableaux */
+
+td 
+{
+    padding: 10px;
+}
+
+section td 
+{
+    padding: 13px;
+}
+
+tbody {
+    color: darkblue;
+}
+
+section table:hover
+{
+    border: 2px double black;
+    background-color: bisque;
+}
+
+.jauge
+{
+    border: 1px solid black;
+    color: black;
+    background-color: aquamarine;
+    padding: 5px 10px 5px 5px;
+}
+
+
+/* Les Liens */
+
+#sommaire a {
+    color: darkblue;
+    text-decoration: none;
+}
+
+
+/* Le navigateur */
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 20%;
+    background-color: #7CC9F2;
+    border: 3px black;
+    border-radius: 10px;
+    margin-right: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: 6px 6px 6px black;
+}
+
+.blocsDuNavigateur {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* Corps de Section : Expériences, formations, compétences */
+
+#corps {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#corps li:hover {
+    color: darkblue;
+}
+
+.blocsDuCorps {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+/* Formulaire */
+
+#bouton {
+    text-align: center;
+}
+
+
+/* Les média-queries */
+
+
+
+@media screen and (min-width: 1000px) 
+/* Si la fenêtre fait un minimum de 1000px le petit navigateur disparait */
+{
+    #petitNavigateur
+    {
+    display: none;
+    }
+}
+
+@media screen and (max-width: 1000px)
+/* Si la fenêtre fait un maximum de 1000px le petit navigateur remplace le grand */
+{
+    nav 
+    {
+        display: none;
+    }
+    
+    #petitNavigateur
+    {
+    display: none;
+    justify-content: space-between;
+    width: auto;
+    background-color: #7CC9F2;
+    border: 3px black;
+    border-radius: 10px;
+    margin-right: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: 6px 6px 6px black;
+    }
+}
+
+@media screen and (max-width: 720px) 
+/* Si la fenêtre fait un maximum de 750px tous les navigateurs disparaissent */
+{
+    nav 
+    {
+        display: none;
+    }
+    
+    #petitNavigateur
+    {
+    display: none;
+    }
+}
+
+
+@media screen and (max-width: 1250px)
+/* Si la fenêtre fait un maximum de 1250px toutes les images flotantes disparaissent */
+{
+    .imageflottante 
+    {
+        display: none;
+    }
+}
+
+@media all and (max-device-width: 480px)
+/* Si le site est vu sur un smartphone alors les règles suivantes s'appliquent */
+{
+    #conteneur
+    {
+        font-size: 0.5em;
+    }
+}
+
+
