@@ -56,19 +56,10 @@ document.getElementById("interdit").addEventListener("click", function (e) {
 // Définition des variables liées au formulaire
 var form = document.querySelector("form");
 
-var champTemps = document.getElementById("tempsPlein");
-
 var champFormId = document.getElementById("formIdentite");
 var champNom = document.getElementById("nom");
 var champPrenom = document.getElementById("prenom");
 
-
-// Utilisation de l'événement change sur la case Temps -> comment utiliser cet événement?
-var champTemps = document.getElementById("tempsPlein");
-champTemps.addEventListener("change", function (e) {
-        valeur = e.target.checked;
-        console.log(valeur);
-    });
 
 
 // Utilisation du focus pour le changement de la couleur de fond du formulaire identité
@@ -143,54 +134,81 @@ var collaborateur = {
     },
 };
 
-// Intégration d'un collaborateur test
-var christian = Object.create(collaborateur);
-christian.init("Olan", "Christian", "matin", "lundi", 150);
 
 // Création de l'équipe
 var equipe = [];
-equipe.push(christian); // Introduction d'un exemple
 
 
-// Ouverture de la Console de choix -> à remplacer par les boutons d'événements
-console.log("Bienvenue dans le gestionnaire de l'équipe !");
-
-// Définition de la variable Choix
-var choix;
-while (choix !== "0") {
-    console.log("1 : Lister les collaborateurs");
-    console.log("2 : Ajouter un collaborateur");
-    console.log("0 : Quitter");
-    var choix = prompt("Choisissez une option :");
-
-    // Condition de déclenchement en fonction des choix
-    switch (choix) {
-    case "1":
-        console.log("Voici la liste de tous vos collaborateurs :");
-        // Avec une boucle for
-        for (var i = 0; i < equipe.length; i++) {
-            console.log(equipe[i].decrire());
-        }
-        // Avec une boucle foreach
-        /*contacts.forEach(function (contact) {
-            console.log(contact.decrire());
-        });*/
-        break;
-    case "2":
-        var nom = form.elements.nom.value;
-        var prenom = form.elements.prenom.value;
-        var rythme = form.elements.rythme.value;
-        var absence = champsAbsences;
-        var quartHeureReservoir = 150;
-        var collaborateur = Object.create(collaborateur);
-        collaborateur.init(nom, prenom, rythme, absence, quartHeureReservoir);
-        equipe.push(collaborateur);
-        console.log("Le nouveau collaborateur a été ajouté");
-        break;
-    }
-    console.log(); // Passe une ligne
+// Fonction rajout d'un membre
+var nombreDeMembre = 1;
+function rajoutMembre () {
+    var nom = form.elements.nom.value;
+    var prenom = form.elements.prenom.value;
+    var rythme = form.elements.rythme.value;
+    var absence = champsAbsences;
+    var quartHeureReservoir = form.elements.reservoir.value;
+    var nouveauCollaborateur = Object.create(collaborateur);
+    collaborateur.init(nom, prenom, rythme, absence, quartHeureReservoir);
+    equipe.push(nouveauCollaborateur);
+    console.log("Le nouveau collaborateur a été ajouté");
+    var rajout = document.createElement("td"); // création d'un élément span
+    rajout.textContent = prenom + " " + nom; // Définition de son contenu textuel
+    document.getElementById("membre" + nombreDeMembre).appendChild(rajout); // Intégration de l'élément dans le tableau
+    nombreDeMembre++;
+    
+// Sous-projet planning Bac : Rajouter un champs pour :
+// - le nombre d'heures
+// - pas plus de 4 classes
+// - repartition techno / général
+// - ne doivent pas avoir leurs classes
+    
 }
-console.log("Au revoir !");
+document.getElementById("rajoutMembre").addEventListener("click",rajoutMembre);
+
+
+// Définition de l'objet groupe
+var groupe = {
+    
+    // initialise le groupe
+    init: function (nomGroupe, uniteGroupe) {
+        this.nomGroupe = nomGroupe;
+        this.uniteGroupe = uniteGroupe;
+    },
+    // décrit le groupe
+    decrire: function () {
+        return "Nom du Groupe : " + this.nomGroupe + ", unités dans le groupe : " + this.uniteGroupe;
+    },
+};
+
+
+// Création de la liste des groupes
+var listeDesGroupes = [];
+
+
+// Fonction rajout d'un groupe
+var nombreDeGroupe = 1;
+function rajoutGroupe () {
+    var nomGroupe = form.elements.nomGroupe.value;
+    var uniteGroupe = form.elements.uniteGroupe.value;
+    var nouveauGroupe = Object.create(groupe);
+    groupe.init(nomGroupe, uniteGroupe);
+    listeDesGroupes.push(nouveauGroupe);
+    console.log("Le nouveau groupe a été ajouté");
+    var rajout2 = document.createElement("td"); // création d'un élément span
+    rajout2.textContent = nomGroupe + " " + uniteGroupe; // Définition de son contenu textuel
+    document.getElementById("groupe" + nombreDeGroupe).appendChild(rajout2); // Intégration de l'élément dans le tableau
+    nombreDeGroupe++;  
+}
+document.getElementById("rajoutGroupe").addEventListener("click",rajoutGroupe);
+
+
+// Fonction répartition du total des unités de tous les groupes entre le nombre de membre de l'équipe
+function repartition (){
+    var repartition = 4;
+    // Mettre une boucle for pour récupérer le nombre d'unité par groupe puis la diviser par le nombre de membre
+    document.getElementById("repartition").input.value = repartition;
+}
+document.getElementById("calculRepartition").addEventListener("click",repartition);
 
 
 // Génération du planning
@@ -270,7 +288,7 @@ function creerPlanning (jours, heures, quartHeures) {
             this.joursConcerne = joursConcerne;
             this.heuresConcerne = heuresConcerne;
             this.quartHeuresConcerne = quartHeuresConcerne;
-            this.type = type;
+            this.type = typeConcerne;
         },
         
         // décrit l'objet
@@ -298,7 +316,7 @@ function creerPlanning (jours, heures, quartHeures) {
                 var joursConcerne = planning[i3].joursConcerne;
                 var heuresConcerne = planning[i3].heuresConcerne;
                 var quartHeuresConcerne = planning[i3].quartHeuresConcerne;
-                var typeConcerne = "téléphone"; // créer objet type et les régles d'attribution
+                var typeConcerne = equipe[i4].typeConcerne;
                 var uniteCollaborateur = Object.create(uniteCollaborateur);
                 uniteCollaborateur.init(nom, prenom, joursConcerne, heuresConcerne, quartHeuresConcerne, typeConcerne)
                 planningDetaille.push(uniteCollaborateur); // intégration de l'unité de temps collab dans le planning détaillé
@@ -315,14 +333,10 @@ function creerPlanning (jours, heures, quartHeures) {
         for (var p2 = 0; p2 < planningDetaille.length; p2++) {
             console.log(planningDetaille[p2].decrire());
         }
-    
-    // Affichage du réservoir de temps du collaborateur test -> à supprimer après la mise en production
-    console.log(christian.quartHeureReservoir);
-    
 }    
     
 // Lancement de la génération du planning
-creerPlanning();
+document.getElementById("genererPlanning").addEventListener("click",creerPlanning);
 
 // Verification avant envoi du formulaire -> test valable si les champs method="post" action="traitement.php" sont supprimés -> NE FONCTIONNE PAS
 form.addEventListener("submit", function (e) {

@@ -37,11 +37,11 @@
                 <div id="informations1" class="blocsDuNavigateur">
                     <h3>Rajouter un membre</h3>
                     <br>
-                    <form method="post" action="traitement.php">
+                    <form>
                         <fieldset id="formTemps">
                             <p>
-                                <input type="checkbox" name="temps" id="tempsPlein" checked>
-                                <label for="tempsPlein">Temps plein</label>
+                                <label for="reservoir">Nombre de quart d'heure</label>
+                                <input type="number" name="temps" id="reservoir">
                             </p>
                         </fieldset>
                         <fieldset id="formIdentite">
@@ -87,12 +87,90 @@
                         </fieldset>
                         <br>
                         <div id="bouton">
-                            <input type="reset" value="Annuler" />
-                            <input type="submit" value="Envoyer" />
+                            <input type="button" value="Rajouter un nouveau membre" id="rajoutMembre" />
+                        </div>
+                        <fieldset id="groupe">
+                            <legend><h4>Groupe</h4></legend>
+                            <p>
+                                <label for="nomGroupe">Groupe</label>
+                                <input type="text" name="nomGroupe" id="nomGroupe" placeholder="Nom du Groupe" size="10" maxlength="10" />
+                            </p>
+                            <p>
+                                <label for="uniteGroupe">Unités</label>
+                                <input type="number" name="uniteGroupe" id="uniteGroupe" placeholder="Nombre d'unités dans ce groupe" size="10" maxlength="10" />
+                            </p>
+                        </fieldset>
+                        <br>
+                        <div id="bouton">
+                            <input type="button" value="Rajouter un nouveau groupe" id="rajoutGroupe" />
+                        </div>
+                        <br>
+                        <fieldset id="repartition">
+                            <legend><h4>Répartition</h4></legend>
+                            <p>
+                                <label for="repartition">Répartition</label>
+                                <input type="number" name="repartition" id="repartition" placeholder="Ensemble d'unités des groupes divisés par le nombre de membre" size="10" maxlength="10" />
+                            </p>
+                        </fieldset>
+                        <br>
+                        <div id="bouton">
+                            <input type="button" value="Calculer la répartition" id="calculRepartition" />
                         </div>
                     </form>
+                    <br>
                 </div>
-                <br>  
+                <div id="informations1" class="blocsDuNavigateur">
+                    <h3>Equipe</h3>
+                    <br>
+                    <table>
+                        <tr id="membre1">
+                        </tr>
+                        <tr id="membre2">
+                        </tr>
+                        <tr id="membre3">
+                        </tr>
+                        <tr id="membre4">
+                        </tr>
+                        <tr id="membre5">
+                        </tr>
+                        <tr id="membre6">
+                        </tr>
+                        <tr id="membre7">
+                        </tr>
+                        <tr id="membre8">
+                        </tr>
+                        <tr id="membre9">
+                        </tr>
+                        <tr id="membre10">
+                        </tr>
+                    </table>
+                </div>
+                <div id="informations1" class="blocsDuNavigateur">
+                    <h3>Groupe</h3>
+                    <br>
+                    <table>
+                        <tr id="groupe1">
+                        </tr>
+                        <tr id="groupe2">
+                        </tr>
+                        <tr id="groupe3">
+                        </tr>
+                        <tr id="groupe4">
+                        </tr>
+                        <tr id="groupe5">
+                        </tr>
+                        <tr id="groupe6">
+                        </tr>
+                        <tr id="groupe7">
+                        </tr>
+                        <tr id="groupe8">
+                        </tr>
+                        <tr id="groupe9">
+                        </tr>
+                        <tr id="groupe10">
+                        </tr>
+                    </table>
+                </div>
             </nav>
             
             <!-- La section -->
@@ -120,14 +198,8 @@
                 <!-- Le corps de section -->
 
                 <div id= "corps">
-                    <div id="modeEmploi" class="blocsDuCorps">
-                        <h3>Mode d'emploi</h3>
-                                <ul>
-                                    <li>1 - Afficher les membres de l'équipe</li>
-                                    <li>2 - Rajouter un membre dans l'équipe</li>
-                                    <li>3 - Générer le planning</li>
-                                    <li>0 - Quitter l'application</li>
-                                </ul>
+                    <div id="bouton">
+                        <input type="button" value="Générer le planning" id="genererPlanning" />
                     </div>
                     <br>
                     <div id="planning" class="blocsDuCorps">
